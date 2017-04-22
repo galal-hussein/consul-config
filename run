@@ -1,0 +1,11 @@
+#!/bin/sh
+
+run_confd()
+{
+  confd --backend", "rancher", "--prefix", "/2015-07-25", "--log-level", "debug
+}
+
+# Copy the running script
+mv /tmp/start_consul.sh /opt/rancher/
+
+run_confd
