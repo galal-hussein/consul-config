@@ -2,7 +2,7 @@
 
 run_confd()
 {
-  confd --backend", "rancher", "--prefix", "/2015-07-25", "--log-level", "debug
+  confd -backend "rancher" -prefix "/2015-07-25" -log-level "debug"
 }
 
 # Copy the running script
