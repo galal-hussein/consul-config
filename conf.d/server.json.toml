@@ -9,5 +9,10 @@ keys = [
   "self/container/name",
   "/self/container/primary_ip",
   "/services/consul/metadata/enc.key",
+  "/services/consul/metadata/acl.enabled",
+  "/services/consul/metadata/acl.default_policy",
+  "/services/consul/metadata/acl.down_policy",
+  "/services/consul/metadata/acl.master_token",
+  "/services/consul/metadata/ui.enabled",
   "/self/container/service_index",
 ]
