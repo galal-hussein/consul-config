@@ -6,6 +6,6 @@ run_confd()
 }
 
 # Copy the running script
-mv /tmp/start_consul.sh /opt/rancher/
+mv /tmp/start_consul.sh /opt/rancher/bin
 
 run_confd
