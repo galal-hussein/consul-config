@@ -1,25 +1,26 @@
 {
-    {{ if (eq (getv "/self/container/service_index") "1") }}"bootstrap": true,{{else}}
-    "retry_join": [{{ $containerName := getv "/self/service/containers/0"}}"{{getv (printf "/containers/%s/primary_ip" $containerName)}}"],
-    "bootstrap": false,{{end}}
+    "retry_join": ["{{getv "/self/service/name"}}.{{getv "/self/stack/name"}}"],
+    "bootstrap_expect": {{getv "/self/service/metadata/bootstrap_expect"}},
     "server": true,
     "datacenter": "dc1",
     "advertise_addr": "{{getv "/self/container/primary_ip"}}",
     "bind_addr": "{{getv "/self/container/primary_ip"}}",
     "client_addr": "{{getv "/self/container/primary_ip"}}",
     "data_dir": "/var/consul",
-    "encrypt": "{{getv "/services/consul/metadata/enc.key"}}",
+    "encrypt": "{{getv "/self/service/metadata/enc.key"}}",
+    "disable_host_node_id": true,
     "ca_file": "/opt/rancher/ssl/ca.crt",
     "cert_file": "/opt/rancher/ssl/consul.crt",
     "key_file": "/opt/rancher/ssl/consul.key",
     "verify_incoming": true,
     "verify_outgoing": true,
-    {{ if (eq (getv "/services/consul/metadata/acl.enabled") "true") }}
+    {{ if (eq (getv "/self/service/metadata/acl.enabled") "true") }}
     "acl_datacenter": "dc1",
-    "acl_default_policy": "{{getv "/services/consul/metadata/acl.default_policy"}}",
-    "acl_down_policy": "{{getv "/services/consul/metadata/acl.down_policy"}}",
-    "acl_master_token": "{{getv "/services/consul/metadata/acl.master_token"}}",
+    "acl_default_policy": "{{getv "/self/service/metadata/acl.default_policy"}}",
+    "acl_down_policy": "{{getv "/self/service/metadata/acl.down_policy"}}",
+    "acl_master_token": "{{getv "/self/service/metadata/acl.master_token"}}",
+    "acl_agent_token": "{{getv "/self/service/metadata/acl.agent_token"}}",
     {{ end }}
-    "ui": {{getv "/services/consul/metadata/ui.enabled"}},
+    "ui": {{getv "/self/service/metadata/ui.enabled"}},
     "log_level": "INFO"
 }

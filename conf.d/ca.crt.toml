@@ -1,5 +1,5 @@
 [template]
-prefix = "/services/consul/metadata"
+prefix = "/self/service/metadata/"
 src = "ca.crt.tmpl"
 dest = "/opt/rancher/ssl/ca.crt"
 owner = "root"

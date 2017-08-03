@@ -4,15 +4,19 @@ dest = "/opt/rancher/config/server.json"
 owner = "root"
 mode = "0644"
 keys = [
-  "/self/service/containers",
+  "/self/service/name",
+  "/self/stack/name",
   "/containers",
   "self/container/name",
   "/self/container/primary_ip",
-  "/services/consul/metadata/enc.key",
-  "/services/consul/metadata/acl.enabled",
-  "/services/consul/metadata/acl.default_policy",
-  "/services/consul/metadata/acl.down_policy",
-  "/services/consul/metadata/acl.master_token",
-  "/services/consul/metadata/ui.enabled",
+  "/self/service/metadata/enc.key",
+  "/self/service/metadata/acl.enabled",
+  "/self/service/metadata/acl.default_policy",
+  "/self/service/metadata/acl.down_policy",
+  "/self/service/metadata/acl.master_token",
+  "/self/service/metadata/acl.agent_token",
+  "/self/service/metadata/ui.enabled",
+  "/self/service/metadata/bootstrap_expect",
   "/self/container/service_index",
+  "/self/container/uuid"
 ]
