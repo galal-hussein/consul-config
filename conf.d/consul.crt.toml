@@ -4,8 +4,8 @@ dest = "/opt/rancher/ssl/consul.crt"
 owner = "root"
 mode = "0644"
 keys = [
-  "/services/consul/metadata/consul1.crt",
-  "/services/consul/metadata/consul2.crt",
-  "/services/consul/metadata/consul3.crt",
+  "/self/service/metadata/consul1.crt",
+  "/self/service/metadata/consul2.crt",
+  "/self/service/metadata/consul3.crt",
   "/self/container/service_index",
   ]
